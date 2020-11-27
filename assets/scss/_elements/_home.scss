@@ -1,0 +1,459 @@
+.ptp__home-wrapper{
+
+    position: relative;
+
+    .ptp__hero-cont{
+        width: 100%; 
+        height: 530px;
+        background-image: url('/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/home-bg.jpg?csf=1&web=1&e=WqnHdk');
+        background-size: cover; 
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .ptp__hero-heading-cont{
+        position: absolute;
+        background: rgba(46, 46, 56, 0.9);
+        top: 6rem;
+        padding: 3rem 4rem 3rem 2rem;
+
+        @include mq($from: tablet){
+            top: 8rem;
+        }
+    }
+    
+    .ptp__hero-heading{
+        color: $white;
+        @include fontSize(30px);
+
+        @include mq($from: tablet){
+             line-height: .8rem;
+        }
+       
+    }
+
+    .ptp__hero-sub-heading{
+        color: $eyYellow;
+        @include fontSize(22px);
+    }
+
+    .ptp__hero-intro-cont{
+        position:  absolute;
+        background:  rgba(255, 255, 255, .9);
+        top: 20rem;
+        left:  0;
+        padding: 1rem 3rem;
+        width: 100%;
+        @include fontSize(14px);
+
+        @include mq($from: tablet){
+            left:  4rem;
+            top: 19rem;
+            width: 82%;
+        }
+    }
+
+
+    .ptp__hero-intro-para{
+        margin-top: 1rem;
+    }
+    
+    .ptp__category-section{
+        padding: 2rem 2rem 3rem 2rem;
+    }
+    
+    .ptp__category-title-cont{
+        display: flex;
+        margin-top: 2rem;
+        
+        @include mq($from: tablet){
+            padding-left: 3rem;
+        }
+    }
+
+    .ptp__category-title{
+        @include fontSize(18px);
+    }
+
+    .ptp__category-title--img{
+        width: 24px;
+        height: 24px;
+        margin-right: 1rem;
+    }
+    
+    .ptp__category-list{
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        &--item{
+            flex-basis: 100%;
+            margin: 1rem auto;
+            position: relative;
+
+            @include mq($from: tablet){
+                flex-basis: 40%;
+            }
+
+            @include mq($from: desktop){
+                flex-basis: 25%;
+            }
+        }
+
+        &--link{
+            @include mq($from: desktop){
+                &:hover{
+                    .ptp__category-card--overlay{
+                        height: 56%;
+                        bottom: 0;
+                        background-image: url('/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/S-Curl.png?csf=1&web=1&e=g1gmYT');
+                        background-position: right;
+                        background-size: 50%;
+                        background-repeat: no-repeat; 
+
+                    }      
+                }                      
+            }
+        }
+    }
+
+    .ptp__category-card{
+        width: 100%;
+        position: relative;
+
+        &--img{
+            width: 100%;
+        }
+
+        &--icon-cont{
+            position: absolute;
+            z-index: 5;
+            top: 0;
+            right: 0;
+            height: 100%;
+            padding: 35% 3%;
+            background-color: $eyGrayDark;
+        }
+
+        &--icon{
+            width: 16px;
+        }
+
+        &--overlay{
+            position: absolute;
+            height: 40%;
+            width: 92%;
+            bottom: 0;
+            padding-left: 15px;
+            background: rgba(46, 46, 56, 0.9);            
+            color: $white;
+            font-family: EYInterstate-Bold, sans-serif;
+            @include fontSize(16px);
+            background-image: url('/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/S-Curl.png?csf=1&web=1&e=g1gmYT');
+            background-position: right;
+            background-size: 50%;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            transition: .5s ease;
+
+            @include mq($from: midMobile){
+                @include fontSize(14px);
+                height: 32%;
+            }
+
+            @include mq($from: tablet){
+                @include fontSize(14px);
+                height: 39%;
+            }
+
+            @include mq($from: desktop){
+                height: 15%;
+                background-image:none; 
+            }
+
+            @include mq($from: desktopWide){
+                height: 10%;
+            }
+
+            &--title{
+                padding: 5px 0;
+                @include fontSize(18px);
+            }
+
+            &--desc{
+                width: 80%;
+                // @include mq($from: tablet){
+                //     width: 100%;
+                // }
+            }
+           
+        }
+    }
+
+
+    .ptp__whats-new-heading-cont{
+        margin: 1rem 0;
+        padding: 1rem 0;
+        background-color: $eyOffBlack;
+    }
+
+    .ptp__whats-new-header{
+        width: 50%;
+        margin: auto;
+        text-align: center;
+        color: $eyYellow;
+    }
+
+    .ptp__whats-new-carousel-cont{
+        width: 90%;
+        margin: 5rem auto;
+
+        @include mq($from: tablet){
+            width: 60%;
+        }
+    }
+
+    .ptp__whats-new-carousel-item{
+        display: flex;
+        flex-wrap: nowrap;
+        height: 188px;
+
+        // @include mq($from: midMobile){
+        //     flex-wrap: nowrap;
+        // }
+
+        @include mq($from: desktop){
+            height: 290px;
+        }
+    }
+
+    .ptp__whats-new-video-cont{
+        flex-basis: 100%;
+        position: relative;
+
+        @include mq($from: midMobile){
+            flex-basis: 60%;
+        }
+
+        video{
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .ptp__whats-new-play-cont{
+        position: absolute;
+        width: 15%;
+        top: 40%;
+        left: 42.5%;
+        cursor: pointer;
+        background-color: $eyOffBlackOpac;
+        border: 1px solid $white;
+        border-radius: 5px;
+        padding: 5px 10px;
+        text-align: center;
+        cursor: pointer;
+    }
+    
+    .ptp__whats-new-play-icon{
+        width: 15px;
+    }
+
+    .ptp__whats-new-video{
+
+        &--desc{
+            flex-basis: 100%;
+            background-color: $eyOffWhite;
+            position: relative;
+            @include fontSize(12px);
+            padding: 1rem .5rem 0 1rem;
+
+            @include mq($from: midMobile){
+                flex-basis: 40%;
+                padding-top: 3rem;
+            }
+
+            @include mq($from: tablet){
+                padding-top: 3rem;
+            }
+
+            @include mq($from: desktop){
+                padding-top: 6rem;
+            }
+        }
+
+        &--title{
+            @include fontSize(16px);
+            margin-bottom: .5rem;
+        }
+
+        &--para{
+            margin-bottom: 2rem;
+        }
+
+    }
+
+    .ptp__whats-new-icons-list{
+        list-style: none;
+        position: absolute;
+        bottom: 0;
+        right: 20px;
+        display: flex;
+
+        &--item{
+            margin-right: 10px;
+        }
+    }
+
+    .ptp__whats-new-icon{
+        width: 12px;
+    }
+
+    .carousel-indicators li {
+        width: 14px;
+        height: 14px;
+        border-radius: 100%;
+        background-color: $eyPrimaryGray;
+        cursor: pointer;
+
+        &.active{
+            background-color: $eyYellow;
+        }
+    }
+
+
+    .carousel-indicators {
+        top: -25px;
+        left: -78%;
+
+        @include mq($from: midMobile){
+            left: -85%;
+        }        
+        @include mq($from: desktop){
+            left: -87%;
+        }
+        @include mq($from: desktopMid){
+            left: -90%;
+        }
+
+    }
+
+    .carousel-control-next{
+        background-color: $eyMidnightBlack !important;
+        background-image: url('/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/Icon%20awesome-arrow-alt-circle-right.png?csf=1&web=1&e=sRGtsW');
+        background-size:65%;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 122%;
+        top: 209px;
+        width: 35px;
+        height: 35px;
+
+        @include mq($from: midMobile){
+            top: 200px;
+        }
+
+        @include mq($from: tablet){
+            right: -100px;
+            top: 58px;
+            height: 70px;
+            width: 70px;
+        }
+        
+        @include mq($from: desktop){
+            top: 87px;
+        }
+    }
+
+    .ptp__contact-section{
+        background-color: $eyGrey;
+        padding: 4rem 0;
+    }
+
+    .ptp__feedback-para{
+        text-align: center;
+        color: $white;
+        line-height: 1rem;
+    }
+
+    .ptp__email-para{
+        text-align: center;
+        margin: 2rem auto;
+        background-color: $eyOffBlack;
+        color: $eyYellow;
+        padding: 1rem 2rem;
+        width: 20rem;
+
+        @include mq($from: midMobile){
+            width: 28rem;
+        }
+    }
+
+    .ptp__whats-new-iframe{
+        width: 100%;
+        height: 100%;
+    }
+
+    .ptp__quick-links-section{
+        position: fixed;
+        z-index: 10;
+        top: 160px;
+        right: -110%;
+        width: 63%;
+        background: $white;
+        transition: all 0.5s ease-out;
+
+        &.show-menu{
+            right:15px;
+            transition: all 0.5s ease-out;
+        }
+
+    }
+
+    .ptp__quick-links-header{
+        margin-top: 1.5rem;
+        margin-left: 2rem;
+    }
+    
+    .ptp__quick-links-icon-cont{
+        position: fixed;
+        z-index: 15;
+        top: 160px;
+        right: 17px;
+        color: $eyYellow;
+        background-color: $eyGrayDark;
+        width: 60px;
+        height: 55px;
+    }
+
+    .ptp__quick-links-icon{
+        position: absolute;
+        top: -21px;
+        right: -6px;
+        @include fontSize(60px);
+        margin:0 2px 0 0;
+        padding: 0 15px;
+        
+        &.rotated {
+            transform: rotate(45deg)
+        }
+    }
+
+
+    .ptp__quick-links-list{
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 3%;
+
+        &--item{
+            margin: 3%;
+        }
+    }
+
+    .ptp__quick-links-img{
+        width: 100px;
+    }
+} 

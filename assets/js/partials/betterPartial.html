@@ -1,0 +1,255 @@
+<div class="ptp__better-wrapper" ng-controller="betterIndCtrl">
+    <section class="ptp__better-hero-cont">
+        <img src="{{betterItem.PageBanner}}" alt="" class="ptp__better-hero-banner">
+        <h2 class="ptp__better-hero-header">{{betterItem.Title}}</h2>
+    </section>
+    <section class="ptp__better-intro-section">
+      <p class="ptp__better-intro-para" ng-bind-html="$sce.trustAsHtml(betterItem.PageIntro)"></p>
+    </section>
+    <section class="ptp__better-accordion-section">
+        <div id="ptp__better-accordion" class="ptp__better-accordion col-12" accordion>
+            <div class="card ptp__better-accordion-card">
+              <div class="card-header ptp__better-accordion-card-header" id="headingOne">
+                <a href="#collapseOne" class="ptp__better-accordion-link btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <img src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/Icon%20awesome-book-open.png?csf=1&web=1&e=xcxWVQ" alt="open book" class="ptp__better-accordion-icon">
+                    <p class="mb-0 ptp__better-accordion-header">
+                        Curriculum
+                    </p>
+                    <!-- <i class="fa fa-plus" aria-hidden="true"></i> -->
+                </a>
+              </div>          
+              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#ptp__better-accordion">
+                <div class="card-body ptp__better-accordion-card-body ptp__curriculum-card-body">
+                  <div id="curriculumCarousel" class="carousel my-3 slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li ng-repeat="curriculumItem in curriculumArr" data-target="#curriculumCarousel" data-slide-to={{$index}} ng-class="{active:!$index}"></li>
+                    </ol>
+                    <div class="carousel-inner ptp__curriculum-carousel-inner">
+                      <div class="carousel-item" ng-class="{active:!$index}" ng-repeat="curriculumItem in curriculumArr">
+                        <div class="ptp__curriculum-carousel-item-inner">
+                          <img src="{{curriculumItem.Image}}" alt="{{curriculumItem.Title}}" class="ptp__curriculum-carousel--img" ng-if="curriculumItem.Image != null">
+                          <div class="ptp__curriculum-carousel-border-div" ng-if="curriculumItem.Image != null"></div>
+                          <div class="ptp__curriculum-carousel--cont">
+                            <h4 class="ptp__curriculum-carousel--header">{{curriculumItem.Title}}</h4>
+                            <p class="ptp__curriculum-carousel--para" ng-bind-html="$sce.trustAsHtml(curriculumItem.Description)"></p>
+                            <a ng-if="curriculumItem.Link != '#'"class="ptp__curriculum-carousel--link" href="{{curriculumItem.Link}}" target="_blank" class="ptp__curriculum-carousel--header">Visit link  <i class="ptp__curriculum-carousel--icon fa fa-angle-right fa-2x" aria-hidden="true"></i></a>  
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card ptp__better-accordion-card" ng-if="sectorInsightsArr.length != 0" ng-repeat="sectorInsight in sectorInsightsArr">
+                <div class="card-header ptp__better-accordion-card-header" id="heading{{$index}}">
+                  <a href="#collapse{{$index}}" class="ptp__better-accordion-link btn btn-link" data-toggle="collapse" data-target="#collapse{{$index}}" aria-expanded="true" aria-controls="collapse{{$index}}">
+                      <img ng-src="{{sectorInsight.Icon.Url}}" alt="{{sectorInsight.Title}}" class="ptp__better-accordion-icon">
+                      <p class="mb-0 ptp__better-accordion-header">
+                        {{sectorInsight.Title}}
+                      </p>
+                  </a>
+                </div>          
+                <div id="collapse{{$index}}" class="collapse" aria-labelledby="heading{{$index}}" data-parent="#ptp__better-accordion">
+                  <div class="card-body ptp__better-accordion-card-body">
+                    <div class="ptp__better-sector-cont" ng-bind-html="$sce.trustAsHtml(sectorInsight.Description)"></div>
+                    <div class="ptp__better-sector-link-cont">
+                      <a ng-if="sectorInsight.Link != null" href="{{sectorInsight.Link}}" target="_blank" class="ptp__better-sector-link">Visit Link <i class="ptp__better-sector--icon fa fa-angle-right fa-2x" aria-hidden="true"></i></a>
+                    </div>                    
+                  </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="ptp__better-tabs-section">
+      <div class="ptp__better-tabs-cont-desktop d-none d-lg-block">
+        <ul class="nav nav-tabs ptp__better-tabs-list" id="tab-list" role="tablist">
+            <li class="nav-item ptp__better-tabs-list--item" ng-if="focusFeatureArr.length > 0">
+                <a class="nav-link ptp__better-tabs-list--link active" id="focus-tab" data-toggle="tab" href="#focus" role="tab" aria-controls="focus" aria-selected="true">
+                  <div id="featured-focus-icon" class="ptp__better-tabs-list--img-cont"></div>
+                  <div class="ptp__better-tabs-list--heading">
+                    <p class="ptp__better-tabs-list--header">Featured Articles</p>
+                    <p class="ptp__better-tabs-list--desc">Latest thought on feature</p>
+                  </div>
+                </a>
+            </li>
+            <li class="nav-item ptp__better-tabs-list--item" ng-if="featuredInsightsArr.length > 0">
+                <a class="nav-link ptp__better-tabs-list--link" id="featured-tab" data-toggle="tab" href="#featured" role="tab" aria-controls="featured" aria-selected="false">
+                  <div id="featured-insights-icon" class="ptp__better-tabs-list--img-cont"></div>
+                  <div class="ptp__better-tabs-list--heading">
+                    <p class="ptp__better-tabs-list--header">Featured Insights</p>
+                    <p class="ptp__better-tabs-list--desc">From across EY's sectors
+                      and industries</p>
+                  </div>
+                </a>
+            </li>
+            <li class="nav-item ptp__better-tabs-list--item" ng-if="videoArr.length > 0">
+                <a class="nav-link ptp__better-tabs-list--link" id="videos-tab" data-toggle="tab" href="#videos" role="tab" aria-controls="videos" aria-selected="false">
+                  <div id="featured-videos-icon" class="ptp__better-tabs-list--img-cont"></div>
+                  <div class="ptp__better-tabs-list--heading">
+                    <p class="ptp__better-tabs-list--header">Featured Videos</p>
+                    <p class="ptp__better-tabs-list--desc">Watch and learn on the go</p>
+                  </div>
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content ptp__better-tabs-cont" id="tab-list-content">
+            <div class="tab-pane ptp__better-tab-pane fade show active" id="focus" role="tabpanel" aria-labelledby="focus-tab">              
+              <ul class="ptp__better-tile-list">
+                <li ng-if="focusFeatureArr.length == 0" class="ptp__better-no-results p-3 m-auto"><h4>No Resources Founds</h4></li>
+                <li class="ptp__better-tile-list--item" ng-repeat="focusFeature in focusFeatureArr | orderBy : 'Order' | limitTo : 6">
+                  <a href="{{focusFeature.Link}}" target="_blank" class="ptp__better-tile-list--link">
+                    <p class="ptp__better-tabs-tile--title">{{focusFeature.Title}}</p>
+                    <p class="ptp__better-tabs-tile--desc">{{focusFeature.Description}}</p>
+                    <div class="ptp__better-tabs-tile--link-icon-cont">
+                      <img src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/link-icon.png?csf=1&web=1&e=rM7esD" alt="" class="ptp__better-tabs-tile--link-icon">
+                    </div>                    
+                    <div class="ptp__better-tabs-tile--like-icon-cont">
+                      <a href="#" class="ptp__better-likes--link" type='button' ng-click="updateLikes(focusFeature, 'Lst_Featured-Articles')" ng-model="focusFeature.Likes">
+                        <img src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/Icon%20awesome-thumbs-up-black.png?csf=1&web=1&e=TdEzYe" alt="" class="ptp__better-tabs-tile--like-icon">{{focusFeature.Likes}}
+                      </a>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-pane ptp__better-tab-pane fade" id="featured" role="tabpanel" aria-labelledby="featured-tab">
+              <ul class="ptp__better-tile-list">
+                <li ng-if="featuredInsightsArr.length == 0" class="ptp__better-no-results p-3 m-auto"><h4>No Resources Founds</h4></li>
+                <li class="ptp__better-tile-list--item" ng-repeat="featuredInsight in featuredInsightsArr | orderBy : 'Order' | limitTo : 6">
+                  <a ng-if="featuredInsight.Link.Url != null" href="{{featuredInsight.Link.Url}}" target="_blank" class="ptp__better-tile-list--link">
+                    <p class="ptp__better-tabs-tile--title">{{featuredInsight.Title}}</p>
+                    <p class="ptp__better-tabs-tile--desc">{{featuredInsight.Description}}</p>
+                    <div class="ptp__better-tabs-tile--link-icon-cont">
+                        <img src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/link-icon.png?csf=1&web=1&e=rM7esD" alt="" class="ptp__better-tabs-tile--link-icon">
+                    </div>                    
+                    <div class="ptp__better-tabs-tile--like-icon-cont">
+                      <a href="#" class="ptp__better-likes--link" type='button' ng-click="updateLikes(featuredInsight, 'Lst_Featured-Insights')" ng-model="featuredInsight.Likes">
+                        <img src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/Icon%20awesome-thumbs-up-black.png?csf=1&web=1&e=TdEzYe" alt="" class="ptp__better-tabs-tile--like-icon">{{featuredInsight.Likes}}
+                      </a>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-pane ptp__better-tab-pane fade" id="videos" role="tabpanel" aria-labelledby="videos-tab">
+              <ul class="ptp__better-tile-list">
+                <li ng-if="videoArr.length == 0" class="ptp__better-no-results p-3 m-auto"><h4>No Resources Founds</h4></li>
+                <li class="ptp__better-tile-list--item ptp__video-focus-list--item" ng-repeat="video in videoArr | orderBy : 'Order' | limitTo : 6">
+                  <a href="{{video.Link}}" target="_blank" class="ptp__better-tile-list--link">
+                    <iframe class="ptp__focus-iFrame" src="{{video.Link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="ptp__better-tabs-tile--link-icon-cont">
+                      <img src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/Images/icons/video-icon-black.png?csf=1&web=1&e=6XRcrh" alt="" class="ptp__better-tabs-tile--link-icon">
+                    </div>                    
+                    <div class="ptp__better-tabs-tile--like-icon-cont">
+                      <a href="#" class="ptp__better-likes--link" type='button' ng-click="updateLikes(video, 'Lst_videos')" ng-model="video.Likes">
+                        <img src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/Icon%20awesome-thumbs-up-black.png?csf=1&web=1&e=TdEzYe" alt="" class="ptp__better-tabs-tile--like-icon">{{video.Likes}}
+                      </a>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+        </div>
+      </div>
+      <div class="ptp__better-tabs-cont-mobile d-block d-lg-none mb-5">
+        <div id="ptp__better-tabs-accordion" class="ptp__better-accordion  col-11 mx-auto" accordion>
+          <div class="card ptp__better-tabs-accordion-card">
+            <div class="card-header ptp__better-tabs-accordion-card-header" id="tabOne">
+              <a href="#collapseTabOne" class="ptp__better-tabs-accordion-link btn btn-link" data-toggle="collapse" data-target="#collapseTabOne" aria-expanded="true" aria-controls="collapseOne">
+                  <img class="ptp__better-accordion-icon" src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/Icon%20material-center-focus-weak-grey.png?csf=1&web=1&e=wYcpwv" alt="open book" class="ptp__better-tabs-accordion-icon">
+                  <p class="mb-0 ptp__better-tabs-accordion-header">
+                      Articles
+                  </p>
+                  <i class="fa fa-minus ptp__better-tabs-accordion-fa" aria-hidden="true"></i>
+              </a>
+            </div>          
+            <div id="collapseTabOne" class="collapse" aria-labelledby="tabOne" data-parent="#ptp__better-tabs-accordion">
+              <div class="card-body ptp__better-tabs-accordion-card-body ptp__better-client-card-body">
+                <ul class="ptp__better-tile-list">
+                  <li ng-if="focusFeatureArr.length == 0" class="ptp__better-no-results p-3 m-auto"><h4>No Resources Founds</h4></li>
+                  <li class="ptp__better-tile-list--item" ng-repeat="focusFeature in focusFeatureArr | orderBy : 'Order' | limitTo : 6">
+                    <a href="{{focusFeature.Link}}" target="_blank" class="ptp__better-tile-list--link">
+                      <p class="ptp__better-tabs-tile--title">{{focusFeature.Title}}</p>
+                      <p class="ptp__better-tabs-tile--desc">{{focusFeature.Description}}</p>
+                      <div class="ptp__better-tabs-tile--link-icon-cont">
+                        <img src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/link-icon.png?csf=1&web=1&e=rM7esD" alt="" class="ptp__better-tabs-tile--link-icon">
+                      </div>                    
+                      <div class="ptp__better-tabs-tile--like-icon-cont">
+                        <a href="#" class="ptp__better-likes--link" type='button' ng-click="updateLikes(focusFeature, 'Lst_Featured-Articles')" ng-model="focusFeature.Likes">
+                          <img src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/Icon%20awesome-thumbs-up-black.png?csf=1&web=1&e=TdEzYe" alt="" class="ptp__better-tabs-tile--like-icon">{{focusFeature.Likes}}
+                        </a>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card ptp__better-tabs-accordion-card">
+              <div class="card-header ptp__better-tabs-accordion-card-header" id="tabTwo">
+                <a href="#collapseTabTwo" class="ptp__better-tabs-accordion-link btn btn-link" data-toggle="collapse" data-target="#collapseTabTwo" aria-expanded="true" aria-controls="collapseTabTwo">
+                    <img class="ptp__better-accordion-icon" src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/Icon%20feather-star.png?csf=1&web=1&e=fBAsJd">
+                    <p class="mb-0 ptp__better-tabs-accordion-header">
+                      Featured Insights
+                    </p>
+                    <i class="fa fa-plus ptp__better-tabs-accordion-fa" aria-hidden="true"></i>
+                </a>
+              </div>          
+              <div id="collapseTabTwo" class="collapse" aria-labelledby="tabTwo" data-parent="#ptp__better-tabs-accordion">
+                <div class="card-body ptp__better-tabs-accordion-card-body">
+                  <ul class="ptp__better-tile-list">
+                    <li ng-if="featuredInsightsArr.length == 0" class="ptp__better-no-results p-3 m-auto"><h4>No Resources Founds</h4></li>
+                    <li class="ptp__better-tile-list--item" ng-repeat="featuredInsight in featuredInsightsArr | orderBy : 'Order' | limitTo : 6">
+                      <a href="{{featuredInsight.Link.Url}}" target="_blank" class="ptp__better-tile-list--link">
+                        <p class="ptp__better-tabs-tile--title">{{featuredInsight.Title}}</p>
+                        <p class="ptp__better-tabs-tile--desc">{{featuredInsight.Description}}</p>
+                        <div class="ptp__better-tabs-tile--link-icon-cont">
+                            <img src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/link-icon.png?csf=1&web=1&e=rM7esD" alt="" class="ptp__better-tabs-tile--link-icon">
+                        </div>                    
+                        <div class="ptp__better-tabs-tile--like-icon-cont">
+                          <a href="#" class="ptp__better-likes--link" type='button' ng-click="updateLikes(featuredInsight, 'Lst_Featured-Insights')" ng-model="featuredInsight.Likes">
+                            <img src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/Icon%20awesome-thumbs-up-black.png?csf=1&web=1&e=TdEzYe" alt="" class="ptp__better-tabs-tile--like-icon">{{featuredInsight.Likes}}
+                          </a>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+          </div>
+          <div class="card ptp__better-tabs-accordion-card">
+            <div class="card-header ptp__better-tabs-accordion-card-header" id="tabThree">
+              <a href="#collapseTabThree" class="ptp__better-tabs-accordion-link btn btn-link" data-toggle="collapse" data-target="#collapseTabThree" aria-expanded="true" aria-controls="collapseTabThree">
+                  <img class="ptp__better-accordion-icon" src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/Icon%20feather-video.png?csf=1&web=1&e=8f1eO1" alt="factory" class="ptp__better-tabs-accordion-icon">
+                  <p class="mb-0 ptp__better-tabs-accordion-header">
+                    Video Insights
+                  </p>
+                  <i class="fa fa-plus ptp__better-tabs-accordion-fa" aria-hidden="true"></i>
+              </a>
+            </div>          
+            <div id="collapseTabThree" class="collapse" aria-labelledby="tabThree" data-parent="#ptp__better-tabs-accordion">
+              <div class="card-body ptp__better-tabs-accordion-card-body">
+                <ul class="ptp__better-tile-list">
+                  <li ng-if="videoArr.length == 0" class="ptp__better-no-results p-3 m-auto"><h4>No Resources Founds</h4></li>
+                  <li class="ptp__better-tile-list--item ptp__video-focus-list--item" ng-repeat="video in videoArr | orderBy : 'Order' | limitTo : 6">
+                    <a href="{{video.Link}}" target="_blank" class="ptp__better-tile-list--link">
+                      <iframe class="ptp__focus-iFrame" src="{{video.Link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div class="ptp__better-tabs-tile--link-icon-cont">
+                        <img src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/Images/icons/video-icon-black.png?csf=1&web=1&e=6XRcrh" alt="" class="ptp__better-tabs-tile--link-icon">
+                      </div>                    
+                      <div class="ptp__better-tabs-tile--like-icon-cont">
+                        <a href="#" class="ptp__better-likes--link" type='button' ng-click="updateLikes(video, 'Lst_videos')" ng-model="video.Likes">
+                          <img src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/Icon%20awesome-thumbs-up-black.png?csf=1&web=1&e=TdEzYe" alt="" class="ptp__better-tabs-tile--like-icon">{{video.Likes}}
+                        </a>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </div>
+        </div>
+      </div>     
+  </section>
+</div>

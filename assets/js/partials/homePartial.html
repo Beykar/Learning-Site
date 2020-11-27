@@ -1,0 +1,176 @@
+<div class="ptp__home-wrapper" ng-controller="homeCtrl">
+    <section class="ptp__hero-cont">
+        <div class="ptp__hero-heading-cont">
+            <h3 class="ptp__hero-heading">
+                Pathways to Partner — Personalised Learning
+            </h3>
+            <p class="ptp__hero-sub-heading">
+                Building your own pathway based on your own developmental needs
+            </p>
+        </div>
+        <div class="ptp__hero-intro-cont">
+            <h5 class="ptp__hero-intro-heading">Introduction</h5>
+            <div class="ptp__hero-intro-para">
+                <p>We have collated a menu of learning offerings and experiences categorised under the      Transformative Leadership model, that would be relevant and beneficial to you as you continue your journey to partnership.<br/><br/> 
+
+                    With the support of your Sponsor, explore the learning categories below and build your development plan. You never stop learning, and as a truly transformative leader, you help our clients do the same.<br/><br/>
+                    
+                    <strong>Be the transformative leader the world needs. It’s yours to build!</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="ptp__category-section">
+        <!-- <div class="ptp__category-intro-cont px-5">
+            <p class="ptp__category-intro-para">Our new <a href="https://transformativeleadership.ey.net/" target="_blank"><u>interactive Transformative Leadership (TL) model</u></a>, helps you explore the key transformative leadership behaviours, relevant questions to ask yourself and the associated learning resources to discover.<br>
+            Organizations with a clear articulation of leadership behaviours select and develop better leaders who, in turn, drive better performance.</p>
+        </div> -->
+        <div class="ptp__category-title-cont">
+            <img src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/Icon%20feather-globe.png?csf=1&web=1&e=uc313V" alt="" class="ptp__category-title--img">
+            <p class="ptp__category-title">Better Working World</p>
+        </div>
+        <ul class="ptp__category-list">
+            <li class="ptp__category-list--item" ng-repeat="betterItem in betterDataArr | filter : {BetterType: 'Client Centricity'}">
+                <a ui-sref="better-client-centric({indCat: betterItem.State})" class="ptp__category-list--link">
+                    <div class="ptp__category-card">
+                        <img src="{{betterItem.CardImage}}" alt="" class="ptp__category-card--img">
+                        <div class="ptp__category-card--icon-cont">
+                            <img src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/Icon%20Down%20Arrow%20Small.png?csf=1&web=1&e=f8iogo" alt="" class="ptp__category-card--icon">
+                        </div>
+                        <div class="ptp__category-card--overlay">
+                            <p class="ptp__category-card--overlay--title">{{betterItem.Title}}</p>
+                            <p class="ptp__category-card--overlay--desc">{{betterItem.CardIntro}}
+                                </p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="ptp__category-list--item" ng-repeat="betterItem in betterDataArr | filter : {BetterType: 'Better Working World'}">
+                <a ui-sref="better({indCat: betterItem.State})" class="ptp__category-list--link">
+                    <div class="ptp__category-card">
+                        <img src="{{betterItem.CardImage}}" alt="" class="ptp__category-card--img">
+                        <div class="ptp__category-card--icon-cont">
+                            <img src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/Icon%20Down%20Arrow%20Small.png?csf=1&web=1&e=f8iogo" alt="" class="ptp__category-card--icon">
+                        </div>
+                        <div class="ptp__category-card--overlay">
+                            <p class="ptp__category-card--overlay--title">{{betterItem.Title}}</p>
+                            <p class="ptp__category-card--overlay--desc">{{betterItem.CardIntro}}
+                                </p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <div class="ptp__category-title-cont">
+            <img src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/Icon%20feather-globe.png?csf=1&web=1&e=FL1c4x" alt="" class="ptp__category-title--img">
+            <p class="ptp__category-title">Better Us</p>
+        </div>
+        <ul class="ptp__category-list">
+            <li class="ptp__category-list--item" ng-repeat="betterItem in betterDataArr | filter : {BetterType: 'Better Us'}">
+                <a ui-sref="better({indCat: betterItem.State})" class="ptp__category-list--link">
+                    <div class="ptp__category-card">
+                        <img src="{{betterItem.CardImage}}" alt="" class="ptp__category-card--img">
+                        <div class="ptp__category-card--icon-cont">
+                            <img src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/Icon%20Down%20Arrow%20Small.png?csf=1&web=1&e=f8iogo" alt="" class="ptp__category-card--icon">
+                        </div>
+                        <div class="ptp__category-card--overlay">
+                            <p class="ptp__category-card--overlay--title">{{betterItem.Title}}</p>
+                            <p class="ptp__category-card--overlay--desc">{{betterItem.CardIntro}}
+                                </p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul> 
+        <div class="ptp__category-title-cont">
+            <img src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/Icon%20open-people.png?csf=1&web=1&e=kkaCyc" alt="" class="ptp__category-title--img">
+            <p class="ptp__category-title">Better Me</p>
+        </div>
+        <ul class="ptp__category-list">
+            <li class="ptp__category-list--item" ng-repeat="betterItem in betterDataArr | filter : {BetterType: 'Better Me'}">
+                <a ui-sref="better({indCat: betterItem.State})" class="ptp__category-list--link">
+                    <div class="ptp__category-card">
+                        <img src="{{betterItem.CardImage}}" alt="" class="ptp__category-card--img">
+                        <div class="ptp__category-card--icon-cont">
+                            <img src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/Icon%20Down%20Arrow%20Small.png?csf=1&web=1&e=f8iogo" alt="" class="ptp__category-card--icon">
+                        </div>
+                        <div class="ptp__category-card--overlay">
+                            <p class="ptp__category-card--overlay--title">{{betterItem.Title}}</p>
+                            <p class="ptp__category-card--overlay--desc">{{betterItem.CardIntro}}
+                                </p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>          
+    </section>
+    <section class="ptp__whats-new-section">
+        <div class="ptp__whats-new-heading-cont">
+            <h4 class="ptp__whats-new-header">What's New! Latest Content</h4>
+        </div>
+        <div class="ptp__whats-new-carousel-cont">
+            <div id="ptp__whats-new-carousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li ng-repeat="featuredVideo in featuredVideoArr" data-target="#ptp__whats-new-carousel" data-slide-to="{{$index}}" ng-class="{active:!$index}"></li>
+                  <!-- <li data-target="#ptp__whats-new-carousel" data-slide-to="{{$index}}"></li> -->
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item" ng-class="{active:!$index}" ng-repeat="featuredVideo in featuredVideoArr" ng-if="featuredVideo.Link != null">
+                    <div class="ptp__whats-new-carousel-item" >
+                        <div class="ptp__whats-new-video-cont">
+                            <iframe  class="ptp__whats-new-iframe" src="{{featuredVideo.Link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>                                
+                            </iframe>        
+                        </div>
+                        <div class="ptp__whats-new-video--desc">
+                            <p class="ptp__whats-new-video--title">{{featuredVideo.Title}}</p>
+                            <p class="ptp__whats-new-video--para">{{featuredVideo.Description}}</p>
+                            <ul class="ptp__whats-new-icons-list">
+                                <li class="ptp__whats-new-icons-list--item">
+                                    <img src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/Icon%20ionic-ios-videocam.png?csf=1&web=1&e=dGmv0V" alt="" class="ptp__whats-new-icon">
+                                    <span class="ptp__whats-new-icon-span"> Video</span></li>
+                                <li class="ptp__whats-new-icons-list--item">
+                                    <a href="#" class="ptp__better-likes--link" type='button' ng-click="updateLikes(featuredVideo, 'Lst_videos')" ng-model="featuredVideo.Likes">
+                                    <img src="/sites/PathwaystoPartner_Indexed-Learning/SiteAssets/ptp_indexed-learning-site/assets/img/Icon%20awesome-thumbs-up.png?csf=1&web=1&e=Ly6RKb" alt="" class="ptp__whats-new-icon">
+                                    <span class="ptp__whats-new-icon-span">{{featuredVideo.Likes}}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>                                
+                    </div>
+                  </div>
+                </div>
+                <a class="carousel-control-next" href="#ptp__whats-new-carousel" role="button" data-slide="next">
+                  <span class="sr-only">Next</span>
+                </a> 
+              </div>
+        </div>
+    </section>
+    <section class="ptp__contact-section">
+        <p class="ptp__feedback-para">
+            Have idea for content or feedback?<br>
+            We'd love to hear from you!
+        </p>
+        <p class="ptp__email-para">
+            <a href="mailto:ukipathwaystopartner@uk.ey.com" class="ptp__email-link">
+                ukipathwaystopartner@uk.ey.com
+            </a>
+        </p>
+    </section>
+    <div slide-menu>
+        <div class="ptp__quick-links-icon-cont">
+            <a href="" class="ptp__quick-links-icon-link">
+                <p class="ptp__quick-links-icon">+</p>
+            </a>        
+        </div>
+        <section class="ptp__quick-links-section">
+            <h3 class="ptp__quick-links-header">Quick Links</h3>
+            <ul class="ptp__quick-links-list">
+                <li class="ptp__quick-links-list--item" ng-repeat="quickLink in quickLinksArr">
+                    <a href="{{quickLink.Link.Url}}" class="ptp__quick-links-list--link">
+                        <img src="{{quickLink.Image}}" alt="" class="ptp__quick-links-img">
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </div>   
+</div>

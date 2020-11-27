@@ -1,0 +1,54 @@
+
+#ptp__main-wrapper {
+	// width: 100vw;
+	background: $white;
+	font-family: EYInterstate-Regular,sans-serif;
+	@include fontSize(16px);
+	color: $eyOffBlack;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	text-rendering: optimizelegibility;
+	position: relative;
+ 
+	a{
+		text-decoration: none;
+		color:inherit;
+		cursor: pointer;
+	}
+	
+	// p{
+	// 	margin: 0;
+	// }
+ 
+	footer{
+		background-color: $eyOffBlack;
+    	padding: 1rem 0;
+	}
+
+	.ptp__footer-para{
+		text-align: center;
+		color: $white;
+		@include fontSize(10px);
+	}
+
+	.ptp__yellow-bg{
+		background-color: $eyYellow;
+		color: $eyOffBlack !important;
+		padding: 2rem;
+
+		& table{
+			border: none;
+		}
+	}
+
+	.ptp__home-icon{
+		color: $white;
+		margin-top: 15px;
+		display: none;
+
+		@include mq($from: tablet){
+			display: block;
+		}
+	}
+	
+}

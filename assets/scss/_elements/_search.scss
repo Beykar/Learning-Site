@@ -1,0 +1,73 @@
+/***** Search Dropdown Component *****/
+
+#ptp__main-wrapper{
+
+    ul.ng-isolate-scope {
+        z-index: 100;
+        max-width: 85.2%;
+        position: absolute !important;
+        top: 99%;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+        font-family: inherit !important;
+        border: none;
+    }
+  
+    li.uib-typeahead-match {
+        max-width: 180%;
+        height: 55px;
+        background-color: $white;
+        color: $eyOffBlack;
+        font-family: EYInterstate-Light, sans-serif;
+        font-size: 13px;
+        font-size: 1rem;
+        line-height: 24px;
+        border: none;
+        padding: 15px 5px 15px 15px;
+    }
+
+    li.uib-typeahead-match:hover {
+        cursor: pointer;
+        background-color:$eyGrayDark;  
+
+        & a{
+            color: $white;
+        }
+    }
+  
+    li.uib-typeahead-match a {
+        text-decoration: none;
+        cursor: pointer;
+        color: $eyOffBlack;
+    }
+  
+    [uib-typeahead-popup].dropdown-menu {
+        display: block;
+        width: 72%;
+        left:48px;
+        top: 52px !important;
+
+        @include mq($from: midMobile){
+            width: 81%;
+        }
+
+        @include mq($from: tablet){
+            width: 78%;
+        }
+
+        @include mq($from: desktop){
+            width: 84%;
+        }
+
+        @include mq($from: desktopMid){
+            width: 85%;
+            left: 18px;
+        }
+    }
+  
+    .ey__search-result-header{
+        padding:0 !important;
+    }
+
+}

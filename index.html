@@ -1,0 +1,126 @@
+<base href="siteUrl">
+
+<!-- Custom Meta tag -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="siteUrlSiteAssets/ptp_indexed-learning-site/assets/css/style.css" type="text/css"> 
+
+
+
+<div id="ptp__main-wrapper" ng-app="ptpApp">
+    <header>
+        <div class="clearfix ey__main-nav">
+            <div class="ey__main-logo-cont clearfix">
+                <a ui-sref="home" title="" class="ey__main-logo-link">
+                    <img src="siteUrlSiteAssets/ptp_indexed-learning-site/assets/img/EY_Logo_Beam_Tag_Stacked_White_C_RGB_EN.png?csf=1&web=1&e=RXH7v9" alt="EY - Building a better working world" class="img-responsive ey__main-logo"/>
+                </a>
+                <a ui-sref="home">
+                    <i class="fa fa-home fa-3x ptp__home-icon" aria-hidden="true"></i>
+                </a>                
+            </div>
+            <div class="ey__search-navigation-cont">
+                <span class="ey__main-home-link">
+                    What do you want to learn today?
+                </span> 
+                <div class="ey__nav-search-form" ng-controller="searchCtrl">
+                    <input type="hidden" class="query" name="q" value="">
+                    <label class="ey__nav-searchbox-label"> 
+                        <input id="search-input" value="" ng-model="selected" type="text" maxlength="2048" class="ey__nav-search-query" placeholder="Search by keyword... " uib-typeahead="state for state in keywordsArr | filter:$viewValue | limitTo:8" ng-keyup= "initFocus()" ng-keydown="$event.keyCode === 13 && searchResults()" focus-me="selected">
+                    </label> 
+                 
+                    <input type="button" ng-click="searchResults()" class="button ey_search-btn"> 
+                </div> 
+                <div menu-popout>
+                    <div class="clearfix ey__ham-menu-cont">
+                        <nav class="ey__ham-menu-toggle-cont">
+                        <a href="" class="ey__ham-menu-toggle--tablet" id="menuToggle">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </a>
+                        <div class="ey__popout-menu">
+                            <ul class="ey__main-nav-list">
+                                <li class="ey__main-nav-listitem">
+                                    <a ui-sref="home" ui-sref-active="active" class="ey__main-nav-anchor">Home</a>
+                                </li>
+                                <li class="ey__main-nav-listitem">
+                                    <a ui-sref="better-client-centric({indCat: 'Client Centricity'})" class="ey__main-nav-anchor">Client Centricity</a>
+                                </li>
+                                <li class="ey__main-nav-listitem">
+                                    <a ui-sref="better({indCat: 'Business, Data and Technology'})" class="ey__main-nav-anchor">Business, Data and Technology</a>
+                                </li>
+                                <li class="ey__main-nav-listitem">
+                                    <a ui-sref="better({indCat: 'Society'})" class="ey__main-nav-anchor">Society</a>
+                                </li>
+                                <li class="ey__main-nav-listitem">
+                                    <a ui-sref="better({indCat: 'Inspiring'})" class="ey__main-nav-anchor">Inspiring</a>
+                                </li>
+                                <li class="ey__main-nav-listitem">
+                                    <a ui-sref="better({indCat: 'Teaming'})" class="ey__main-nav-anchor" >Teaming</a>
+                                </li>
+                                <li class="ey__main-nav-listitem">
+                                    <a ui-sref="better({indCat: 'Belonging'})" class="ey__main-nav-anchor" >Belonging</a>
+                                </li>
+                                <li class="ey__main-nav-listitem">
+                                    <a ui-sref="better({indCat: 'Curiosity'})" class="ey__main-nav-anchor" >Curiosity</a>
+                                </li>
+                                <li class="ey__main-nav-listitem">
+                                    <a ui-sref="better({indCat: 'Agility'})" class="ey__main-nav-anchor" >Agility</a>
+                                </li>
+                                <li class="ey__main-nav-listitem">
+                                    <a ui-sref="better({indCat: 'Wellbeing'})" class="ey__main-nav-anchor" >Wellbeing</a>
+                                </li>
+                            </ul>
+                        </div>
+                        </nav>
+                    </div>
+                </div> 
+               
+            </div>
+        </div>
+    </header>
+	<main class="ptp__main-wrapper">
+		<ui-view></ui-view>
+    </main>
+    <footer>
+        <div class="ptp__footer-para">
+            All rights reserved. &reg;2020 
+        </div>
+    </footer>
+
+    <!-- Vendors -->
+	<script src="siteUrlSiteAssets/ptp_indexed-learning-site/assets/js/vendors/angular.min.js"></script>	
+    <script src="siteUrlSiteAssets/ptp_indexed-learning-site/assets/js/vendors/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="siteUrlSiteAssets/ptp_indexed-learning-site/assets/js/vendors/jquery.min.js"></script>
+    <script src="siteUrlSiteAssets/ptp_indexed-learning-site/assets/js/vendors/popper.min.js"></script>
+    <script src="siteUrlSiteAssets/ptp_indexed-learning-site/assets/js/vendors/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/7afb12a081.js?001"></script>
+
+    <!-- App -->
+	<script src="siteUrlSiteAssets/ptp_indexed-learning-site/assets/js/app.js"></script>
+
+	<!-- Factories -->
+    <script src="siteUrlSiteAssets/ptp_indexed-learning-site/assets/js/factory/betterFactory.js"></script>
+    <script src="siteUrlSiteAssets/ptp_indexed-learning-site/assets/js/factory/featuredInsightsFactory.js"></script>
+    <script src="siteUrlSiteAssets/ptp_indexed-learning-site/assets/js/factory/focusFeatureFactory.js"></script>
+    <script src="siteUrlSiteAssets/ptp_indexed-learning-site/assets/js/factory/videoFactory.js"></script>
+    <script src="siteUrlSiteAssets/ptp_indexed-learning-site/assets/js/factory/clientCentricDiagramFactory.js"></script>
+    <script src="siteUrlSiteAssets/ptp_indexed-learning-site/assets/js/factory/curriculumFactory.js"></script>
+    <script src="siteUrlSiteAssets/ptp_indexed-learning-site/assets/js/factory/sectorInsightsFactory.js"></script>
+    <script src="siteUrlSiteAssets/ptp_indexed-learning-site/assets/js/factory/quickLinksFactory.js"></script>
+    
+    <!-- Controllers -->
+    <script src="siteUrlSiteAssets/ptp_indexed-learning-site/assets/js/controllers/homeCtrl.js"></script>    
+    <script src="siteUrlSiteAssets/ptp_indexed-learning-site/assets/js/controllers/betterIndCtrl.js"></script>
+    <script src="siteUrlSiteAssets/ptp_indexed-learning-site/assets/js/controllers/searchCtrl.js"></script>
+    
+    <!-- Directives -->
+    <script src="siteUrlSiteAssets/ptp_indexed-learning-site/assets/js/directives/menuDir.js"></script>
+    <script src="siteUrlSiteAssets/ptp_indexed-learning-site/assets/js/directives/accordionDir.js"></script>
+    <script src="siteUrlSiteAssets/ptp_indexed-learning-site/assets/js/directives/focusMeDir.js"></script>
+    <script src="siteUrlSiteAssets/ptp_indexed-learning-site/assets/js/directives/slideMenuDir.js"></script>
+    <!--<script src="siteUrlSiteAssets/ptp_indexed-learning-site/assets/js/directives/viewMoreDir.js"></script> -->
+	
+</div>
